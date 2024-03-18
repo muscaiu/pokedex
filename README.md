@@ -1,5 +1,3 @@
-# Nuant FE Test
-
 ## [Live Demo](https://pokedex-three-kohl.vercel.app)
 
 ## Stepts to run locally
