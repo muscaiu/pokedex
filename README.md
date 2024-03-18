@@ -1,5 +1,25 @@
 # Nuant FE Test
 
+## [Live Demo](https://pokedex-three-kohl.vercel.app)
+
+## Stepts to run locally
+
+1. clone the repo: 
+```bash
+git clone https://github.com/muscaiu/pokedex.git
+```
+
+2. Install the dependencies
+```bash
+yarn
+```
+3. run in dev mode
+```bash
+yarn dev
+```
+---
+## Initial Info
+
 This project uses vite react-ts template which provides a minimal setup to get React working in Vite with ESLint rules.
 
 It's been configured with Tailwindcss in case you want to use it Pokenode to retrieve the data of Pokemons
