@@ -2,8 +2,9 @@ import {
   Link, useSearchParams
 } from "react-router-dom";
 import { Pokemon } from 'pokenode-ts';
-import LoadingSpinner from "./LoadingSpinner";
-import { usePokemonContext } from "./PokemonContext";
+import LoadingSpinner from "./icons/LoadingSpinner";
+import { usePokemonContext } from "../context/PokemonContext";
+import PokemonImage from "./PokemonImage";
 
 export default function PokemonList() {
   const { pokemons, isLoading, errorMessage, debouncedSearchTerm } = usePokemonContext();
@@ -25,16 +26,17 @@ export default function PokemonList() {
           <span className="sr-only">Loading...</span>
         </div>
       )}
+
       {pokemons.length > 0 ? (
-        <>
-          <div className="mt-4">
+        <div className="w-full">
+          <div className="mt-12 mx-8 text-center ">
             Found {filteredPokemons.length} {filteredPokemons.length === 1 ? 'Pokemon' : 'Pokemons'}
             &nbsp;with names containing <span className="text-red-500">{searchParam}</span>
             {selectedType && <span>&nbsp;of type <span className="text-red-500">{selectedType}</span></span>}
             &nbsp;!
           </div>
 
-          <ul className="bg-gray-800 mt-4 w-full">
+          <ul className="bg-gray-800 mt-4 rounded-md p-4 mx-4">
             {filteredPokemons.map((pokemon) => (
               <li
                 key={pokemon.name}
@@ -48,7 +50,7 @@ export default function PokemonList() {
                 >
 
                   {pokemon.sprites.front_default ? (
-                    <img src={pokemon.sprites.front_default} alt={pokemon.name} className="w-20 h-20 bg-gray-200 rounded-full" />
+                    <PokemonImage size="m" sprite={pokemon.sprites.front_default} alt={pokemon.name} />
                   ) : (
                     <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
                       <span>No Image</span>
@@ -60,7 +62,7 @@ export default function PokemonList() {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       ) : debouncedSearchTerm.length > 1 && !isLoading ? (
         <div className="mt-10">No results</div>
       ) : null}

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { usePokemonContext } from './PokemonContext';
+import { usePokemonContext } from '../context/PokemonContext';
 import useClickOutside from '../hooks/useClickOutside';
 
 export default function Filter() {
@@ -31,7 +31,7 @@ export default function Filter() {
   useClickOutside(dropdownRef, () => setIsOpen(false));
 
   return (
-    <div className='flex items-center md:mt-0 mt-6'>
+    <div className='flex justify-center md:justify-start items-center md:mt-0 mt-6 md:flex-row flex-col'>
       <div className="ml-8 relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -45,12 +45,12 @@ export default function Filter() {
         </button>
         {isOpen && (
           <div ref={dropdownRef} id="dropdown" className="absolute z-10">
-            <ul className="mt-2 text-sm text-gray-700 bg-white rounded-lg shadow w-44" aria-labelledby="dropdownDefaultButton">
+            <ul className="mt-1 text-sm text-gray-700 bg-white rounded-lg shadow w-44" aria-labelledby="dropdownDefaultButton">
               {uniquePokemonTypes.map((type) => (
                 <li key={type}>
                   <button
                     onClick={() => handleFilterClick(type)}
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white text-left w-full">
+                    className="block px-4 py-2 hover:bg-gray-100 text-left w-full">
                     {type}
                   </button>
                 </li>
@@ -59,15 +59,12 @@ export default function Filter() {
           </div>
         )}
       </div>
-      {typeParam &&
-        <a
-          className='ml-1 text-sm cursor-pointer hover:text-blue-700'
-          onClick={clearFilters}
-        >
-          Clear filter
-        </a>
-      }
+      <a
+        className='md:ml-1 text-center text-sm cursor-pointer hover:text-blue-700'
+        onClick={clearFilters}
+      >
+        Clear filter
+      </a>
     </div>
-
   );
 }

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import {
   useSearchParams
 } from "react-router-dom";
-import SearchIcon from './SearchIcon';
-import CloseIcon from './CloseIcon';
+import SearchIcon from './icons/SearchIcon';
+import CloseIcon from './icons/CloseIcon';
 
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();

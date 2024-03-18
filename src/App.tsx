@@ -3,7 +3,7 @@ import {
   Route,
 } from "react-router-dom";
 import PokemonDetails from './components/PokemonDetails';
-import Layout from './components/Layout';
+import Layout from './components/layout/Layout';
 import Home from './components/Home';
 import NotFound from "./components/NotFound";
 import './index.css'
