@@ -32,7 +32,7 @@ export default function Filter() {
 
   return (
     <div className='flex justify-center md:justify-start items-center md:mt-0 mt-6 md:flex-row flex-col'>
-      <div className="ml-8 relative">
+      <div className="first-letter md:ml-8 relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
           id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
@@ -60,7 +60,7 @@ export default function Filter() {
         )}
       </div>
       <a
-        className='md:ml-1 text-center text-sm cursor-pointer hover:text-blue-700'
+        className='md:ml-1 mt-2 md:mt-0 text-center text-sm cursor-pointer hover:text-blue-700'
         onClick={clearFilters}
       >
         Clear filter
