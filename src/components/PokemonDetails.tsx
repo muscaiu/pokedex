@@ -4,8 +4,9 @@ import PokemonImage from './PokemonImage';
 import BackButton from './BackButton';
 
 export default function PokemonDetails() {
-  const { state } = useLocation();
-  const { pokemon } = state as { pokemon: Pokemon };
+  const loc = useLocation();
+  console.log('loc:', loc)
+  const { pokemon } = loc.state as { pokemon: Pokemon };
 
   return (
     <div className='mx-auto max-w-2xl'>

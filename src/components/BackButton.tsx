@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function BackButton() {
   return (
-    <div className='flex justify-center'>
+    <div className='flex justify-center mb-4'>
       <div className="inline-block">
         <Link className='flex justify-center items-center mt-10 hover:text-blue-700' to="/">
           <svg className="w-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

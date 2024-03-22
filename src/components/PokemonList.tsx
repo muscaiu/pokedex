@@ -2,21 +2,21 @@ import {
   Link, useSearchParams
 } from "react-router-dom";
 import { Pokemon } from 'pokenode-ts';
-import LoadingSpinner from "./icons/LoadingSpinner";
 import { usePokemonContext } from "../context/PokemonContext";
 import PokemonImage from "./PokemonImage";
+import LoadingSpinner from "./icons/LoadingSpinner";
 
 export default function PokemonList() {
-  const { pokemons, isLoading, errorMessage, debouncedSearchTerm } = usePokemonContext();
+  const { foundPokemons, isLoading, errorMessage, debouncedSearchTerm } = usePokemonContext();
 
   const [searchParams] = useSearchParams();
   const searchParam = searchParams.get('search');
   const selectedType = searchParams.get('type');
 
   const filteredPokemons = selectedType
-    ? pokemons.filter((pokemon): pokemon is Pokemon =>
+    ? foundPokemons.filter((pokemon): pokemon is Pokemon =>
       pokemon !== null && pokemon.types.some(type => type.type.name === selectedType))
-    : pokemons.filter((pokemon): pokemon is Pokemon => pokemon !== null);
+    : foundPokemons.filter((pokemon): pokemon is Pokemon => pokemon !== null);
 
   return (
     <>
@@ -27,7 +27,7 @@ export default function PokemonList() {
         </div>
       )}
 
-      {pokemons.length > 0 ? (
+      {foundPokemons.length > 0 ? (
         <div className="w-full">
           <div className="mt-12 mx-8 text-center ">
             Found {filteredPokemons.length} {filteredPokemons.length === 1 ? 'Pokemon' : 'Pokemons'}
