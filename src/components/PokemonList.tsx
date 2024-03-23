@@ -20,12 +20,7 @@ export default function PokemonList() {
 
   return (
     <>
-      {isLoading && (
-        <div role="status" className="mt-10">
-          <LoadingSpinner />
-          <span className="sr-only">Loading...</span>
-        </div>
-      )}
+      <LoadingSpinner isLoading={isLoading} />
 
       {foundPokemons.length > 0 ? (
         <div className="w-full">
@@ -45,7 +40,6 @@ export default function PokemonList() {
                   to={{
                     pathname: `/pokemon/${pokemon.name}`,
                   }}
-                  state={{ pokemon: pokemon }}
                   className="flex items-center text-gray-200"
                 >
 

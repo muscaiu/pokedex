@@ -16,6 +16,8 @@ export default function usePokemonSearch(searchTerm: string, allPokemons: NamedA
       } catch (error) {
         console.error(`Failed to fetch details for ${name}:`, error);
         return null;
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -34,7 +36,6 @@ export default function usePokemonSearch(searchTerm: string, allPokemons: NamedA
 
         setFoundPokemons(pokemonDetails);
       } catch (error) {
-        console.error('Failed to fetch Pokémon list:', error);
         setErrorMessage('Something went wrong. Please try again later.');
       } finally {
         setLoading(false);

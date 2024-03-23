@@ -3,8 +3,8 @@ import { NamedAPIResource, PokemonClient } from 'pokenode-ts';
 
 export default function useFetchAllPokemons() {
   const [allPokemons, setAllPokemons] = useState<NamedAPIResource[]>([]);
-  const [isLoading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
     const api = new PokemonClient();
