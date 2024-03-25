@@ -10,8 +10,8 @@ export default function useFetchPokemonDetails(pokemonName: string) {
     const api = new PokemonClient();
 
     const fetchPokemonDetails = async (): Promise<void> => {
-      setLoading(true);
       try {
+        setLoading(true);
         const result = await api.getPokemonByName(pokemonName);
         setPokemonDetails(result);
       } catch (error) {

@@ -9,8 +9,8 @@ export default function useFetchAllPokemons() {
   useEffect(() => {
     const api = new PokemonClient();
     const fetchAllPokemons = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         const { results: allPokemons } = await api.listPokemons(0, 1500);
         setAllPokemons(allPokemons);
       } catch (error) {

@@ -11,6 +11,7 @@ export default function usePokemonSearch(searchTerm: string, allPokemons: NamedA
 
     const fetchPokemonDetails = async (name: string): Promise<Pokemon | null> => {
       try {
+        setLoading(true);
         const foundPokemons = await api.getPokemonByName(name);
         return foundPokemons;
       } catch (error) {

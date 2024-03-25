@@ -17,7 +17,7 @@ export default function PokemonList() {
     ? foundPokemons.filter((pokemon): pokemon is Pokemon =>
       pokemon !== null && pokemon.types.some(type => type.type.name === selectedType))
     : foundPokemons.filter((pokemon): pokemon is Pokemon => pokemon !== null);
-
+    
   return (
     <>
       <LoadingSpinner isLoading={isLoading} />
@@ -57,9 +57,9 @@ export default function PokemonList() {
             ))}
           </ul>
         </div>
-      ) : debouncedSearchTerm.length > 1 && !isLoading ? (
+      ) : (debouncedSearchTerm && !isLoading && foundPokemons.length === 0) && (
         <div className="mt-10">No results</div>
-      ) : null}
+      )}
 
       {!errorMessage && <div className="text-red-500 mt-10">{errorMessage}</div>}
     </>

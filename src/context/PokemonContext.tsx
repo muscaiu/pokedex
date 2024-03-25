@@ -34,7 +34,7 @@ export const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) =>
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get("search") || "";
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  
+
   const [globalLoading, setGlobalLoading] = useState(false);
   const [globalErrorMessage, setGlobalErrorMessage] = useState('');
 
