@@ -28,14 +28,19 @@ export default function usePokemonSearch(searchTerm: string, allPokemons: NamedA
         return;
       }
 
-      setLoading(true);
       try {
+        setLoading(true);
         const searchResults = allPokemons.filter(pokemon => pokemon.name.includes(searchTerm.toLowerCase()));
-
         const detailsPromises = searchResults.map(pokemon => fetchPokemonDetails(pokemon.name));
         const pokemonDetails = await Promise.all(detailsPromises);
+        const sortedPokemonDetails = [...pokemonDetails].sort((a, b) => {
+          if (!a || !b) {
+            return 0;
+          }
+          return a.name.localeCompare(b.name)
+        });
 
-        setFoundPokemons(pokemonDetails);
+        setFoundPokemons(sortedPokemonDetails);
       } catch (error) {
         setErrorMessage('Something went wrong. Please try again later.');
       } finally {

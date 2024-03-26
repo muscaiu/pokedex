@@ -50,7 +50,9 @@ export const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) =>
   const uniquePokemonTypes = useMemo(() => {
     const pokemonTypes = foundPokemons.flatMap(pokemon => pokemon?.types.map(type => type.type.name));
     const filteredPokemonTypes = pokemonTypes.filter((type): type is string => type !== undefined);
-    return [...new Set(filteredPokemonTypes)];
+    const sortedAndUniquePokemonTypes = [...new Set(filteredPokemonTypes)].sort();
+    
+    return [...new Set(sortedAndUniquePokemonTypes)];
   }, [foundPokemons]);
 
   const value = useMemo(() => ({
