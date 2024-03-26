@@ -1,7 +1,7 @@
-import Filter from './Filter';
+import Filter from '../global/Filter';
 import PokemonList from './PokemonList';
-import Search from './Search';
-import { PokemonProvider } from '../context/PokemonContext';
+import Search from '../global/Search';
+import { PokemonProvider } from '../../context/PokemonContext';
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import BackButton from "./BackButton"
+import BackButton from "../global/BackButton"
 
 export default function NotFound() {
   return (

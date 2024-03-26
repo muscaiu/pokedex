@@ -2,9 +2,9 @@ import {
   Link, useSearchParams
 } from "react-router-dom";
 import { Pokemon } from 'pokenode-ts';
-import { usePokemonContext } from "../context/PokemonContext";
-import PokemonImage from "./PokemonImage";
-import LoadingSpinner from "./icons/LoadingSpinner";
+import { usePokemonContext } from "../../context/PokemonContext";
+import PokemonImage from "../global/PokemonImage";
+import LoadingSpinner from "../icons/LoadingSpinner";
 
 export default function PokemonList() {
   const { foundPokemons, isLoading, errorMessage, debouncedSearchTerm } = usePokemonContext();

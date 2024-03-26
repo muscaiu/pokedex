@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { usePokemonContext } from '../context/PokemonContext';
-import useClickOutside from '../hooks/useClickOutside';
+import { usePokemonContext } from '../../context/PokemonContext';
+import useClickOutside from '../../hooks/useClickOutside';
 
 export default function Filter() {
   const [isOpen, setIsOpen] = useState(false);
